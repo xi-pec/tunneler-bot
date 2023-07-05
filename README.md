@@ -1,2 +1,2 @@
 # About
-Coming Soom :tm:
+Coming Soon :tm:
