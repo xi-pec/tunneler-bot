@@ -1,4 +1,5 @@
 import { Client, Collection } from "discord.js";
+import { Server } from "./modules/Server.js";
 
 declare global {
     var __filename: string;
@@ -6,4 +7,5 @@ declare global {
 
     var client: Client;
     var cmds: Collection<string, any>;
+    var server: Server;
 }
