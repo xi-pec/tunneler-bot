@@ -1,5 +1,5 @@
 {
-  "name": "ts-project",
+  "name": "discord-ts-bot",
   "version": "1.0.0",
   "description": "",
   "main": "./build/index.js",
