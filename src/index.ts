@@ -4,7 +4,6 @@ import { Client, Collection, GatewayIntentBits } from "discord.js";
 import { readdirSync } from "fs";
 import isOnline from "is-online";
 
-import { Server } from "./modules/Server.js";
 import { Event } from "./modules/Event.js";
 import { Command } from "./modules/Command.js";
 
@@ -27,7 +26,6 @@ async function main(): Promise<void> {
     });
     
     global.cmds = new Collection();
-    global.server = new Server();
     
     const eventlist: string[] = readdirSync("./build/events/").filter(e => e.endsWith(".js"));
     for (const file of eventlist) {
