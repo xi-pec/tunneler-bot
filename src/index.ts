@@ -1,5 +1,3 @@
-import "dotenv/config";
-
 import { Client, Collection, GatewayIntentBits } from "discord.js";
 import { readdirSync } from "fs";
 import isOnline from "is-online";
@@ -27,14 +25,14 @@ async function main(): Promise<void> {
     
     global.cmds = new Collection();
     
-    const eventlist: string[] = readdirSync("./build/events/").filter(e => e.endsWith(".js"));
+    const eventlist: string[] = readdirSync("./src/events/").filter(e => e.endsWith(".ts"));
     for (const file of eventlist) {
         const event: Event = (await import(`./events/${file}`)).default as Event;
         global.client.on(event.name, event.callback);
         console.log(`loaded event ${event.name}`);
     }
     
-    const cmdlist: string[] = readdirSync("./build/cmds/").filter(e => e.endsWith(".js"));
+    const cmdlist: string[] = readdirSync("./src/cmds/").filter(e => e.endsWith(".ts"));
     for (const file of cmdlist) {
         const cmd: Command = (await import(`./cmds/${file}`)).default as Command;
         global.cmds.set(cmd.name, cmd);

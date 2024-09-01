@@ -3,14 +3,14 @@ import { Client, ChatInputCommandInteraction, CommandInteractionOptionResolver, 
 export interface CommandOptions {
     name: string
     description: string
-    builder: SlashCommandBuilder
+    builder: Omit<SlashCommandBuilder, "addSubcommandGroup" | "addSubcommand">;
     run: (client: Client, ia: ChatInputCommandInteraction, options: CommandInteractionOptionResolver) => Promise<void> | void
 }
 
 export class Command {
     name: string;
     description: string;
-    builder: SlashCommandBuilder;
+    builder: Omit<SlashCommandBuilder, "addSubcommandGroup" | "addSubcommand">;
     run: (client: Client, ia: ChatInputCommandInteraction, options: CommandInteractionOptionResolver) => Promise<void> | void;
 
     constructor(options: CommandOptions) {
